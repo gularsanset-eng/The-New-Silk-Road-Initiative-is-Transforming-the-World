@@ -1,0 +1,2340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The New Silk Road Initiative — Transforming the World</title>
+<meta name="description" content="An interactive premium digital article about the Belt and Road Initiative — a global infrastructure and economic development strategy transforming the world since 2013." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-bg: #ffffff;
+    --color-bg-soft: #fafaf7;
+    --color-bg-warm: #f7f3ec;
+    --color-bg-paper: #fbfaf7;
+    --color-bg-cream: #f5f0e6;
+    --color-gold: #c9a24a;
+    --color-gold-bright: #e5c065;
+    --color-gold-deep: #a8832f;
+    --color-gold-light: #f4e5c0;
+    --color-red: #c8102e;
+    --color-red-soft: #e63946;
+    --color-red-deep: #8b0a1f;
+    --color-red-light: #fde8ec;
+    --color-ink: #1a1a1a;
+    --color-ink-soft: #3a3a3a;
+    --color-ink-muted: #6b6b6b;
+    --color-ink-light: #999999;
+    --color-line: #e8e3d8;
+    --color-line-soft: #f0ebe0;
+    --color-line-light: #f5f0e6;
+    --color-shadow: rgba(26, 26, 26, 0.06);
+    --color-shadow-strong: rgba(26, 26, 26, 0.12);
+
+    --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-accent: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+    --max-w: 1280px;
+    --max-w-text: 780px;
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 32px;
+    --radius-xl: 48px;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--color-ink);
+    background: var(--color-bg);
+    overflow-x: hidden;
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+::selection {
+    background: var(--color-gold);
+    color: #fff;
+}
+
+/* ============================================================
+   LOADER
+   ============================================================ */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 32px;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-mark {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.loader-mark svg {
+    width: 100%;
+    height: 100%;
+    animation: loaderRotate 2.4s linear infinite;
+}
+
+.loader-mark circle {
+    fill: none;
+    stroke: var(--color-gold);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: loaderDash 1.8s ease-in-out infinite;
+}
+
+.loader-text {
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    animation: loaderPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes loaderRotate {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes loaderDash {
+    0% { stroke-dashoffset: 220; }
+    50% { stroke-dashoffset: 60; }
+    100% { stroke-dashoffset: 220; }
+}
+
+@keyframes loaderPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* ============================================================
+   CURSOR
+   ============================================================ */
+.cursor-dot,
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.15s var(--ease-smooth), width 0.3s var(--ease-smooth), height 0.3s var(--ease-smooth);
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.35s var(--ease-smooth), width 0.35s var(--ease-smooth), height 0.35s var(--ease-smooth), border-color 0.35s var(--ease-smooth);
+}
+
+.cursor-ring.hover {
+    width: 70px;
+    height: 70px;
+    border-color: var(--color-gold-bright);
+}
+
+@media (max-width: 900px) {
+    .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-red));
+    z-index: 9998;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(201, 162, 74, 0.4);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9000;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s var(--ease-smooth);
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(0px);
+}
+
+.nav.scrolled {
+    padding: 14px 40px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--color-line-soft);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+}
+
+.nav-brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-gold), var(--color-red));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: 0 4px 14px rgba(201, 162, 74, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-brand-mark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.3) 50%, transparent 60%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.nav-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.nav-brand-text small {
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    font-weight: 500;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-gold);
+    transition: width 0.4s var(--ease-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--color-ink);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: var(--color-gold-deep);
+}
+
+.nav-cta {
+    padding: 10px 24px;
+    border-radius: 100px;
+    background: var(--color-ink);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: all 0.3s var(--ease-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-gold), var(--color-red));
+    transform: translateX(-100%);
+    transition: transform 0.5s var(--ease-smooth);
+}
+
+.nav-cta span {
+    position: relative;
+    z-index: 1;
+}
+
+.nav-cta:hover::before {
+    transform: translateX(0);
+}
+
+@media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .nav { padding: 16px 24px; }
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 8000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s var(--ease-smooth);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--color-ink);
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+.back-to-top svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 120px 40px 80px;
+    background: linear-gradient(180deg, #fff 0%, #fbf7ee 50%, #f7f0e0 100%);
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero-gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: floatOrb 20s ease-in-out infinite;
+}
+
+.hero-gradient-orb.orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(229, 192, 101, 0.4), transparent 70%);
+    top: -150px;
+    right: -150px;
+}
+
+.hero-gradient-orb.orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(200, 16, 46, 0.25), transparent 70%);
+    bottom: -150px;
+    left: -150px;
+    animation-delay: -10s;
+}
+
+@keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, -40px) scale(1.1); }
+    66% { transform: translate(-40px, 50px) scale(0.95); }
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 28px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-line);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s var(--ease-smooth) 0.2s forwards;
+}
+
+.hero-eyebrow::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-red);
+    box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.2);
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 8vw, 120px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    color: var(--color-ink);
+}
+
+.hero-title .line {
+    display: block;
+    overflow: hidden;
+}
+
+.hero-title .line span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: revealLine 1.2s var(--ease-smooth) forwards;
+}
+
+.hero-title .line:nth-child(1) span { animation-delay: 0.4s; }
+.hero-title .line:nth-child(2) span { animation-delay: 0.6s; }
+.hero-title .line:nth-child(3) span { animation-delay: 0.8s; }
+
+@keyframes revealLine {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--color-gold-deep), var(--color-red));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.hero-subtitle {
+    font-family: var(--font-accent);
+    font-size: clamp(18px, 2vw, 24px);
+    font-style: italic;
+    color: var(--color-ink-muted);
+    max-width: 720px;
+    margin: 0 auto 48px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s var(--ease-smooth) 1.2s forwards;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s var(--ease-smooth) 1.4s forwards;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: all 0.4s var(--ease-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: var(--color-ink);
+    color: #fff;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-red), var(--color-gold));
+    transform: translateY(100%);
+    transition: transform 0.5s var(--ease-smooth);
+}
+
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-primary:hover::before {
+    transform: translateY(0);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(200, 16, 46, 0.3);
+}
+
+.btn-ghost {
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+    backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+    background: #fff;
+    border-color: var(--color-gold);
+    transform: translateY(-2px);
+}
+
+.btn svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover svg {
+    transform: translateX(4px);
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 1000px;
+    margin: 80px auto 0;
+    padding: 48px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s var(--ease-smooth) 1.6s forwards;
+}
+
+.hero-stat {
+    text-align: center;
+    position: relative;
+}
+
+.hero-stat:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -16px;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: var(--color-line);
+}
+
+.hero-stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-ink);
+    margin-bottom: 10px;
+}
+
+.hero-stat-number .num {
+    background: linear-gradient(135deg, var(--color-gold-deep), var(--color-red));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-stat-label {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .hero { padding: 120px 24px 60px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; padding: 32px; }
+    .hero-stat:not(:last-child)::after { display: none; }
+}
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+.section {
+    position: relative;
+    padding: 160px 40px;
+    background: var(--color-bg);
+    overflow: hidden;
+}
+
+.section:nth-child(even) {
+    background: var(--color-bg-paper);
+}
+
+.section-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header {
+    max-width: 900px;
+    margin: 0 auto 100px;
+    text-align: center;
+}
+
+.section-number {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    color: var(--color-gold-deep);
+    margin-bottom: 24px;
+    position: relative;
+    padding: 0 40px;
+}
+
+.section-number::before,
+.section-number::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: var(--color-gold);
+}
+
+.section-number::before { left: 0; }
+.section-number::after { right: 0; }
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5.5vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    color: var(--color-ink);
+}
+
+.section-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--color-gold-deep), var(--color-red));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+    font-family: var(--font-accent);
+    font-size: clamp(18px, 1.8vw, 24px);
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.5;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   ARTICLE CONTENT
+   ============================================================ */
+.article-content {
+    max-width: var(--max-w-text);
+    margin: 0 auto;
+}
+
+.article-content p {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--color-ink-soft);
+    margin-bottom: 28px;
+    font-weight: 400;
+}
+
+.article-content p:first-of-type::first-letter {
+    font-family: var(--font-display);
+    font-size: 4.5em;
+    font-weight: 700;
+    float: left;
+    line-height: 0.9;
+    margin: 8px 14px 0 0;
+    color: var(--color-gold-deep);
+}
+
+.article-content strong {
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+.article-content em {
+    color: var(--color-gold-deep);
+    font-style: italic;
+}
+
+/* ============================================================
+   NOTE CARDS
+   ============================================================ */
+.note-card {
+    position: relative;
+    margin: 40px 0;
+    padding: 36px 40px;
+    background: linear-gradient(135deg, rgba(201, 162, 74, 0.06), rgba(200, 16, 46, 0.03));
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-gold);
+    border-radius: var(--radius-md);
+    font-size: 16.5px;
+    line-height: 1.75;
+    color: var(--color-ink-soft);
+    transition: all 0.4s var(--ease-smooth);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+}
+
+.note-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.08);
+    border-left-color: var(--color-red);
+}
+
+.note-card .note-icon {
+    position: absolute;
+    top: -18px;
+    left: 32px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.note-card .note-label {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold-deep);
+    margin-bottom: 14px;
+}
+
+.note-card strong {
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+/* ============================================================
+   IMAGE BLOCKS
+   ============================================================ */
+.image-block {
+    position: relative;
+    margin: 64px 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f0e4, #ece4d1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    transition: all 0.6s var(--ease-smooth);
+}
+
+.image-block:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+}
+
+.image-block img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-smooth);
+}
+
+.image-block:hover img {
+    transform: scale(1.04);
+}
+
+.image-block .img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(26, 26, 26, 0.6));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image-block:hover .img-overlay {
+    opacity: 1;
+}
+
+.image-block .img-caption {
+    position: absolute;
+    bottom: 28px;
+    left: 32px;
+    right: 32px;
+    color: #fff;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s var(--ease-smooth);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.image-block:hover .img-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-block .img-number {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 100px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.image-full {
+    margin: 72px -40px;
+    border-radius: 0;
+}
+
+@media (min-width: 900px) {
+    .image-full {
+        margin: 72px -100px;
+    }
+}
+
+.image-grid {
+    display: grid;
+    gap: 28px;
+    margin: 64px 0;
+}
+
+.image-grid.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.image-grid .image-block {
+    margin: 0;
+}
+
+.image-grid .image-block img {
+    aspect-ratio: 4 / 3;
+}
+
+@media (max-width: 768px) {
+    .image-grid.cols-2 { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   STAT CARDS
+   ============================================================ */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    margin: 64px 0;
+}
+
+.stat-card {
+    position: relative;
+    padding: 40px 36px;
+    background: #fff;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-line);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.5s var(--ease-smooth);
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-red));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s var(--ease-smooth);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-gold);
+}
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+.stat-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(201, 162, 74, 0.15), rgba(200, 16, 46, 0.08));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    font-size: 24px;
+}
+
+.stat-card-number {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-ink);
+    margin-bottom: 12px;
+}
+
+.stat-card-number .num {
+    background: linear-gradient(135deg, var(--color-gold-deep), var(--color-red));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-card-label {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+.stat-card-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+}
+
+/* ============================================================
+   CORRIDOR CARDS
+   ============================================================ */
+.corridor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin: 72px 0;
+}
+
+.corridor-card {
+    position: relative;
+    padding: 44px 40px;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-line);
+    transition: all 0.5s var(--ease-smooth);
+    overflow: hidden;
+}
+
+.corridor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(201, 162, 74, 0.05), rgba(200, 16, 46, 0.03));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.corridor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-gold);
+}
+
+.corridor-card:hover::before {
+    opacity: 1;
+}
+
+.corridor-number {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--color-gold), var(--color-red));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.4;
+    margin-bottom: 24px;
+}
+
+.corridor-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-bottom: 18px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+}
+
+.corridor-desc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--color-ink-soft);
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s var(--ease-smooth), transform 1s var(--ease-smooth);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+}
+
+.stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(7) { transition-delay: 0.65s; opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(8) { transition-delay: 0.75s; opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   CHINESE CHARACTERS DECORATION
+   ============================================================ */
+.chinese-chars {
+    position: absolute;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 320px;
+    font-weight: 900;
+    color: var(--color-ink);
+    opacity: 0.03;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    body { font-size: 16px; }
+    .section { padding: 100px 20px; }
+    .article-content p { font-size: 17px; }
+    .article-content p:first-of-type::first-letter { font-size: 3.5em; }
+}
+
+@media print {
+    .nav, .progress-bar, .back-to-top, .loader, .cursor-dot, .cursor-ring { display: none !important; }
+    .section { page-break-inside: avoid; padding: 40px 0; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <div class="loader-mark">
+        <svg viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="35"></circle>
+        </svg>
+    </div>
+    <div class="loader-text">Loading</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+    <a href="#top" class="nav-brand">
+        <div class="nav-brand-mark">丝</div>
+        <div class="nav-brand-text">
+            <span>The New Silk Road</span>
+            <small>Belt & Road Initiative</small>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#overview" data-section="overview">Overview</a></li>
+        <li><a href="#history" data-section="history">History</a></li>
+        <li><a href="#objectives" data-section="objectives">Objectives</a></li>
+        <li><a href="#relations" data-section="relations">Relations</a></li>
+        <li><a href="#corridors" data-section="corridors">Corridors</a></li>
+        <li><a href="#maritime" data-section="maritime">Maritime</a></li>
+        <li><a href="#digital" data-section="digital">Digital</a></li>
+    </ul>
+    <a href="#overview" class="nav-cta"><span>Begin Journey</span></a>
+</nav>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+</button>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" id="top">
+    <div class="hero-bg">
+        <div class="hero-gradient-orb orb-1"></div>
+        <div class="hero-gradient-orb orb-2"></div>
+    </div>
+
+    <div class="hero-inner">
+        <div class="hero-eyebrow">
+            <span>Educational Interactive Article · 2013 — 2026</span>
+        </div>
+        <h1 class="hero-title">
+            <span class="line"><span>The New Silk Road</span></span>
+            <span class="line"><span><em>Initiative</em> is</span></span>
+            <span class="line"><span>Transforming the World</span></span>
+        </h1>
+        <p class="hero-subtitle">
+            A premium digital exploration of the Belt and Road Initiative — the most ambitious infrastructure and economic development strategy of the 21st century.
+        </p>
+        <div class="hero-actions">
+            <a href="#overview" class="btn btn-primary magnetic">
+                <span>Begin the Journey</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#corridors" class="btn btn-ghost magnetic">
+                <span>Explore Corridors</span>
+            </a>
+        </div>
+
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-number"><span class="num" data-count="150">0</span>+</div>
+                <div class="hero-stat-label">Countries</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number"><span class="num" data-count="75">0</span>%</div>
+                <div class="hero-stat-label">World Population</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">$<span class="num" data-count="8">0</span>T</div>
+                <div class="hero-stat-label">Estimated Investment</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number"><span class="num" data-count="6">0</span></div>
+                <div class="hero-stat-label">Economic Corridors</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     SECTION 1 — OVERVIEW
+     ============================================================ -->
+<section class="section" id="overview">
+    <div class="chinese-chars" style="top: 40px; right: -40px;">一带</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section I</div>
+            <h2 class="section-title">The <em>Overview</em> of a Global Vision</h2>
+            <p class="section-subtitle">An infrastructure and economic development strategy reshaping international cooperation since 2013.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal">The Belt and Road Initiative, also known as the One Belt One Road (Chinese: 一带一路; pinyin: Yīdài Yīlù) and sometimes called the New Silk Road, is a global infrastructure and economic development strategy of the government of China since 2013. Projects in over 150 countries include ports, railways, highways, power stations, aviation, and telecommunications.</p>
+
+            <div class="image-block reveal">
+                <img src="image-1.jpg" alt="Belt and Road Initiative overview">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 01</div>
+                <div class="img-caption">The global scope of the Belt and Road Initiative</div>
+            </div>
+
+            <p class="reveal">The initiative was launched by Chinese Communist Party general secretary Xi Jinping in 2013 while visiting Kazakhstan. It aims to invest in over 150 countries and international organizations through six overland economic corridors and the 21st Century Maritime Silk Road. The BRI is central to China's foreign policy and economy. Overland transport routes include the China–Pakistan Economic Corridor, the Eurasian Land Bridge, and the New Eurasian Land Bridge. Maritime projects under the 21st Century Maritime Silk Road include the ports of Hambantota, Sri Lanka; Gwadar, Pakistan; and Piraeus, Greece. BRI has exported China's high-speed rail, such as in the Boten–Vientiane and Jakarta-Bandung lines.</p>
+
+            <div class="stat-grid stagger reveal">
+                <div class="stat-card">
+                    <div class="stat-card-icon">🌍</div>
+                    <div class="stat-card-number"><span class="num" data-count="150">0</span>+</div>
+                    <div class="stat-card-label">Participating Countries</div>
+                    <div class="stat-card-desc">Spanning every inhabited continent</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">👥</div>
+                    <div class="stat-card-number"><span class="num" data-count="75">0</span>%</div>
+                    <div class="stat-card-label">World Population</div>
+                    <div class="stat-card-desc">As of 2025, based on aggregated datasets</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">💰</div>
+                    <div class="stat-card-number">&gt;<span class="num" data-count="50">0</span>%</div>
+                    <div class="stat-card-label">Global GDP</div>
+                    <div class="stat-card-desc">Combined economic output of members</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">🚄</div>
+                    <div class="stat-card-number"><span class="num" data-count="6">0</span></div>
+                    <div class="stat-card-label">Overland Corridors</div>
+                    <div class="stat-card-desc">Linked by road, rail, energy, and digital networks</div>
+                </div>
+            </div>
+
+            <p class="reveal">As of 2025, participating countries account for nearly 75% of the world's population and over half of global GDP, based on aggregated membership and international economic datasets. The initiative is widely described as having the potential to enhance global trade, connectivity, and economic growth, particularly in developing economies. At the same time, it has been associated with concerns regarding environmental impact, human rights and governance standards, debt sustainability, and the dual-use nature of certain infrastructure projects.</p>
+
+            <div class="image-block reveal">
+                <img src="image-2.jpg" alt="Global trade routes">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 02</div>
+                <div class="img-caption">Connecting continents through infrastructure</div>
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — GDP</span>
+                <strong>Gross domestic product (GDP)</strong> is a monetary measure of the total market value of all of the final goods and services which are produced and rendered during a specific period of time (usually a year) by a country or countries.
+            </div>
+
+            <div class="image-grid cols-2 stagger reveal">
+                <div class="image-block">
+                    <img src="image-3.jpg" alt="Infrastructure projects">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 03</div>
+                    <div class="img-caption">Ports, railways, and highways worldwide</div>
+                </div>
+                <div class="image-block">
+                    <img src="image-4.jpg" alt="High-speed rail">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 04</div>
+                    <div class="img-caption">China's high-speed rail exported globally</div>
+                </div>
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — Dual-Use Items</span>
+                In politics, diplomacy and export control, <strong>dual-use items</strong> refer to equipment, machines, goods and technology (both hardware and software) that can be used for both civilian and military applications.
+            </div>
+
+            <p class="reveal">Global Chinese investment dates all the way back to the 1950s, shortly after its socialist reform from 1949 to 1952, with projects in North Korea, Vietnam, and numerous African countries. Under the leadership of CCP chairman, Mao Zedong, African independence movements prompted China's interest in the region, accounting for 58% of its economic aid between 1956 and 1969.</p>
+
+            <div class="image-block reveal">
+                <img src="image-5.jpg" alt="Historical Chinese investment">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 05</div>
+                <div class="img-caption">Early Chinese investment in Africa since the 1950s</div>
+            </div>
+
+            <p class="reveal">China funded primarily agricultural projects through companies like the China Merchants Group and China Resources Corporation, for which each built foreign branches. China made these investments alongside tactics of diplomacy to improve Sino-African relations for the sake of future economic cooperation.</p>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — Africa–China Relations</span>
+                <strong>Africa–China relations</strong>, also referred to as Sino-African relations, Afro–Chinese relations and China–Africa relations, are the historical, political, economic, military, social, and cultural connections between China and Africa.
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — China Merchants Group</span>
+                <strong>China Merchants Group Limited</strong> (Chinese: 招商局集团; pinyin: Zhaoshangju Jituan) is a state-owned enterprise (SOE) of the People's Republic of China, operating under the auspices of the Government of China.
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — China Resources</span>
+                <strong>China Resources Holdings Company Limited</strong> (Chinese: 华润), or simply China Resources, is a Chinese state-owned conglomerate that owns a variety of businesses in Hong Kong and Mainland China.
+            </div>
+
+            <div class="image-block reveal">
+                <img src="image-6.jpg" alt="Diplomatic relations">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 06</div>
+                <div class="img-caption">Diplomacy and economic cooperation intertwined</div>
+            </div>
+
+            <p class="reveal">Fueled by isolationist political motivations, these investments were relatively small. China's self-reliant aims generally left it incapable of any sizable foreign investment.</p>
+            <p class="reveal">However, following the 1966-1976 Chinese Cultural Revolution, severe economic shortages incentivized a change.</p>
+            <p class="reveal">Border tensions with the Soviet Union furthermore worried China, as apparent in Chinese Foreign Minister, Huang Hua's 1977 statement, saying that China needed to win the favor of the United States to avoid "revisionist Soviet social-imperialism", which he believed made the USSR China's "archenemy."</p>
+            <p class="reveal">Other Chinese officials and allies held similar beliefs.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — HISTORY
+     ============================================================ -->
+<section class="section" id="history">
+    <div class="chinese-chars" style="top: 60px; left: -40px;">一路</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section II</div>
+            <h2 class="section-title">A <em>Historical</em> Turning Point</h2>
+            <p class="section-subtitle">From isolationism to the opening of China's economic doors — the political and ideological foundations of the initiative.</p>
+        </div>
+
+        <div class="article-content">
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — Isolationism</span>
+                <strong>Isolationism</strong> is a political philosophy advocating a foreign policy that opposes involvement in the political affairs, and especially the wars, of other countries.
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — The Cultural Revolution</span>
+                <strong>The Cultural Revolution</strong>, formally known as the Great Proletarian Cultural Revolution, was a sociopolitical movement in the People's Republic of China (PRC). It was launched by CCP chairman Mao Zedong in 1966 and lasted until his death in 1976. Its stated goal was to preserve Chinese communism by purging remnants of capitalist and traditional elements from Chinese society.
+            </div>
+
+            <div class="image-block reveal">
+                <img src="image-7.jpg" alt="Chinese economic reform">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 07</div>
+                <div class="img-caption">The transition to a market-based economy</div>
+            </div>
+
+            <p class="reveal">The policy aimed to open China's economic doors, transitioning the country into a market-based economy, which was considered critical for economic growth.</p>
+
+            <div class="image-block reveal">
+                <img src="image-8.jpg" alt="Xi Jinping announcement">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 08</div>
+                <div class="img-caption">The landmark announcement in Kazakhstan, 2013</div>
+            </div>
+
+            <p class="reveal"><strong>📍 2013 Silk Road Economic Belt announcement</strong></p>
+            <p class="reveal">Xi announced the BRI concept as the "Silk Road Economic Belt" on 7 September 2013 at Nazarbayev University in Astana, Kazakhstan.</p>
+            <p class="reveal">In October 2013 during a speech delivered in Indonesia, Xi stated that China planned to build a "twenty-first century Maritime Silk Road" to enhance cooperation in Southeast Asia and beyond.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — OBJECTIVES
+     ============================================================ -->
+<section class="section" id="objectives">
+    <div class="chinese-chars" style="bottom: 40px; right: -40px;">目标</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section III</div>
+            <h2 class="section-title">The <em>Objectives</em> Behind the Initiative</h2>
+            <p class="section-subtitle">Closing the infrastructure gap and accelerating economic growth across continents.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>📊 Objectives</strong></p>
+            <p class="reveal">The Belt and Road Initiative addresses an "infrastructure gap" and thus has the potential to accelerate economic growth across the Asia Pacific, Africa and Central and Eastern Europe, according to a report from the World Pensions Council.</p>
+            <p class="reveal">The initial focus has been infrastructure investment, education, construction materials, railway and highway, automobile, real estate, power grid, and iron and steel.</p>
+
+            <div class="image-block reveal">
+                <img src="image-9.jpg" alt="Infrastructure investment">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 09</div>
+                <div class="img-caption">One of the largest infrastructure projects in history</div>
+            </div>
+
+            <p class="reveal">Already, some estimates list the Belt and Road Initiative as one of the largest infrastructure and investment projects in history, covering more than 68 countries, including 65% of the world population and 40% of the global gross domestic products.</p>
+            <p class="reveal">The project builds on the old trade routes that once connected China to the west, Marco Polo and Ibn Battuta's routes in the north and the maritime expedition routes of Ming dynasty admiral Zheng He in the south.</p>
+            <p class="reveal">The Belt and Road Initiative now refers to the entire geographical area of the historic "Silk Road" trade route, which has been continuously used in antiquity.</p>
+            <p class="reveal">The stated goals of the BRI were officially presented for the first time in a 2015 document, the Vision and Actions on Jointly Building Belt and Road.</p>
+            <p class="reveal">It outlined six economic corridors for trade and investment connectivity would be implemented.</p>
+
+            <div class="image-block reveal">
+                <img src="image-10.jpg" alt="Historic Silk Road">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 10</div>
+                <div class="img-caption">Building on ancient trade routes</div>
+            </div>
+
+            <p class="reveal">The BRI develops new markets for Chinese firms, channels excess industrial capacity overseas, increases China's access to resources, and strengthens its ties with partner countries.</p>
+            <p class="reveal">The initiative generates its own export demand because Chinese loans enable participating countries to develop infrastructure projects involving Chinese firms and expertise.</p>
+            <p class="reveal">The infrastructure developed also helps China to address the imbalance between its more developed eastern regions and its less developed western regions.</p>
+
+            <div class="note-card reveal" style="border-left-color: var(--color-red);">
+                <div class="note-icon">🔑</div>
+                <span class="note-label">Key Insight</span>
+                For developing countries, the BRI is appealing because of the opportunities it offers to alleviate their economic disadvantages relative to Western countries.
+                <br><br>
+                The BRI offers them infrastructure development, financial assistance, and technical assistance from China.
+                <br><br>
+                The increase in foreign direct investment and increased trade linkages also increases employment and poverty alleviation for these countries.
+            </div>
+
+            <p class="reveal">While some countries, especially the United States, view the project critically because of Chinese government influence, others point to the creation of a new global growth engine by connecting and moving Asia, Europe and Africa closer together.</p>
+            <p class="reveal">In the maritime silk road, which is already the route for more than half of all containers in the world, deep-water ports are being expanded, logistical hubs are being built, and new traffic routes are being created in the hinterland. The maritime silk road runs with its connections from the Chinese coast to the south, linking Hanoi, Kuala Lumpur, Singapore, and Jakarta, then westward linking the Sri Lankan capital city of Colombo, and Malé, capital of the Maldives, and onward to East Africa, and the city of Mombasa, in Kenya. From there the linkage moves northward to Djibouti, through the Red Sea and the Suez Canal to the Mediterranean, thereby linking Haifa, Istanbul, and Athens, to the Upper Adriatic region to the northern Italian hub of Trieste, with its international free port and its rail connections to Central Europe and the North Sea.</p>
+            <p class="reveal">As a result, Poland, the Baltic States, Northern Europe, and Central Europe are also connected to the maritime silk road and logistically linked to East Africa, India and China via the Adriatic ports and Piraeus. All in all, the ship connections for container transports between Asia and Europe will be reorganized. In contrast to the longer East Asian traffic via north-west Europe, the southern sea route through the Suez Canal towards the junction Trieste shortens the goods transport by at least four days.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — INTERNATIONAL RELATIONS
+     ============================================================ -->
+<section class="section" id="relations">
+    <div class="chinese-chars" style="top: 40px; left: -40px;">外交</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section IV</div>
+            <h2 class="section-title"><em>International</em> Relations</h2>
+            <p class="section-subtitle">Geopolitics, soft power, and the extension of Chinese economic influence across continents.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>🇭🇰📣 International relations</strong></p>
+            <p class="reveal">The Belt and Road Initiative is believed by some analysts to be a way to extend Chinese economic and political influence. Some geopolitical analysts have couched the Belt and Road Initiative in the context of Halford Mackinder's heartland theory.</p>
+            <p class="reveal">Scholars have noted that official PRC media attempts to mask any strategic dimensions of the Belt and Road Initiative as a motivation, while others note that the BRI also serves as signposts for Chinese provinces and ministries, guiding their policies and actions. Academic Keyu Jin writes that while the BRI does advance strategic interests for China, it also reflects the CCP's vision of a world order based on "building a global community of shared future"</p>
+            <p class="reveal">China has already invested billions of dollars in several South Asian countries like Pakistan, Nepal, Sri Lanka, Bangladesh and Afghanistan to improve their basic infrastructure, with implications for China's trade regime as well as its military influence. This project can also become a new economic corridor for different regions. For example, in the Caucasus region, China considered cooperation with Armenia from May 2019. Chinese and Armenian sides had multiple meetings, signed contracts, initiated a north–south road program to solve even infrastructure-related aspects.</p>
+
+            <div class="image-grid cols-2 stagger reveal">
+                <div class="image-block">
+                    <img src="image-11.jpg" alt="Geopolitical influence">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 11</div>
+                    <div class="img-caption">Geopolitical dimensions of the BRI</div>
+                </div>
+                <div class="image-block">
+                    <img src="image-12.jpg" alt="Diplomatic meetings">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 12</div>
+                    <div class="img-caption">Diplomatic engagement across regions</div>
+                </div>
+            </div>
+
+            <p class="reveal">A 2025 academic review of China's role in the Middle East interprets the BRI as not only an infrastructure program but also a diplomatic instrument for expanding Chinese influence through soft power. It notes that China utilizes digital projects, cultural exchange, and educational initiatives to project influence while maintaining strategic ambiguity in regions like the Gulf.</p>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — Heartland Theory</span>
+                <strong>"The Geographical Pivot of History"</strong> is an article submitted by Halford John Mackinder in 1904 to the Royal Geographical Society that advances his heartland theory.
+                <br><br>
+                In this article, Mackinder extended the scope of geopolitical analysis to encompass the entire globe. He defined Afro-Eurasia as the "world island" and its "heartland" as the area east of the Volga, south of the Arctic, west of the Yangtze, and north of the Himalayas. Due to its strategic location and natural resources, Mackinder argued that whoever controlled the "heartland" could control the world.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — LEADERSHIP
+     ============================================================ -->
+<section class="section" id="leadership">
+    <div class="chinese-chars" style="bottom: 40px; right: -40px;">领导</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section V</div>
+            <h2 class="section-title"><em>Leadership</em> & Governance</h2>
+            <p class="section-subtitle">The steering committee and institutional framework driving the initiative.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>🔎 Leadership</strong></p>
+            <p class="reveal">A leading group was formed sometime in late 2014, and its leadership line-up publicized on 1 February 2015. This steering committee reports directly into the State Council of China and is composed of several political heavyweights, evidence of the importance of the program to the government. Then Vice-Premier Zhang Gaoli, who was also a member of the 7-man CCP Politburo Standing Committee, was named leader of the group, and Wang Huning, Wang Yang, Yang Jing, and Yang Jiechi named deputy leaders.</p>
+
+            <div class="image-block reveal">
+                <img src="image-13.jpg" alt="Leadership structure">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 13</div>
+                <div class="img-caption">The leading group structure</div>
+            </div>
+
+            <p class="reveal">On 28 March 2015, China's State Council outlined the principles, framework, key areas of cooperation and cooperation mechanisms with regard to the initiative.</p>
+            <p class="reveal">The BRI is considered a central element within China's foreign policy, and was incorporated into the CCP's constitution in 2017 during its 19th Congress.</p>
+            <p class="reveal">The BRI represents a set of policies for Chinese engagement with the global South, including diversifying resource and energy supplies, building loan-funded infrastructure using Chinese companies, creating new markets for Chinese companies, and engaging global South countries simultaneously at bilateral and regional levels.</p>
+
+            <div class="image-block reveal">
+                <img src="image-14.jpg" alt="State Council">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 14</div>
+                <div class="img-caption">Institutional coordination through multilateral forums</div>
+            </div>
+
+            <p class="reveal">With regard to China and the African countries, the Forum on China–Africa Cooperation (FOCAC) is a significant multilateral cooperation mechanism for facilitating BRI projects.</p>
+            <p class="reveal">The China–Arab States Cooperation Forum (CASCF) serves a similar coordinating role with regard to BRI projects in the Arab states.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — MEMBERSHIP
+     ============================================================ -->
+<section class="section" id="membership">
+    <div class="chinese-chars" style="top: 40px; right: -40px;">成员</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section VI</div>
+            <h2 class="section-title"><em>Membership</em> & Participation</h2>
+            <p class="section-subtitle">How nations join the initiative through formal memoranda of understanding.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>🎩 Membership</strong></p>
+            <p class="reveal">Countries join the Belt and Road Initiative by signing a Memorandum of Understanding (MoU) with China regarding their participation in it. The Government of China maintains a listing of all involved countries on its Belt and Road Portal, and state media outlet Xinhua News Agency puts out a press release whenever a memorandum of understanding related to the Belt and Road Initiative is signed with a new country. As of May 2025, according to observers at Fudan University's Green Finance and Development Center, between 146 and 150 states were members of the Belt and Road Initiative.</p>
+
+            <div class="image-grid cols-2 stagger reveal">
+                <div class="image-block">
+                    <img src="image-15.jpg" alt="MoU signing">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 15</div>
+                    <div class="img-caption">Signing of Memoranda of Understanding</div>
+                </div>
+                <div class="image-block">
+                    <img src="image-16.jpg" alt="Global membership">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 16</div>
+                    <div class="img-caption">Over 150 states now participate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — FINANCE
+     ============================================================ -->
+<section class="section" id="finance">
+    <div class="chinese-chars" style="bottom: 40px; left: -40px;">金融</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section VII</div>
+            <h2 class="section-title">The <em>Financial</em> Architecture</h2>
+            <p class="section-subtitle">The institutions, funds, and banks supporting trillions of dollars in infrastructure investment.</p>
+        </div>
+
+        <div class="article-content">
+            <div class="note-card reveal">
+                <div class="note-icon">📌💴</div>
+                <span class="note-label">Asian Infrastructure Investment Bank (AIIB)</span>
+                The Asian Infrastructure Investment Bank, first proposed in October 2013, is a development bank dedicated to lending for infrastructure projects. As of 2015, China announced that over one trillion yuan (US$160 billion) of infrastructure-related projects were in planning or construction.
+                <br><br>
+                The primary goals of AIIB are to address the expanding infrastructure needs across Asia, enhance regional integration, promote economic development and improve public access to social services.
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📈</div>
+                <span class="note-label">Silk Road Fund</span>
+                On 29 December 2014, China established the Silk Road Fund with total capital of US$40 billion and ¥100 billion.
+                <br><br>
+                The Silk Road Fund invests in BRI infrastructure, resource development, energy development, industrial cooperation, and financial cooperation.
+                <br><br>
+                The Karot Hydropower Project in Pakistan was its first project.
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">🗃</div>
+                <span class="note-label">China Investment Corporation</span>
+                China Investment Corporation supports the BRI by investing in its infrastructure projects, participating in other BRI-related development funds, and assisting Chinese corporations with foreign mergers and acquisitions.
+                <br><br>
+                China Investment Corporation also invested in the Silk Road Fund.
+            </div>
+
+            <div class="image-grid cols-2 stagger reveal">
+                <div class="image-block">
+                    <img src="image-17.jpg" alt="AIIB headquarters">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 17</div>
+                    <div class="img-caption">The Asian Infrastructure Investment Bank</div>
+                </div>
+                <div class="image-block">
+                    <img src="image-18.jpg" alt="Silk Road Fund">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 18</div>
+                    <div class="img-caption">The Silk Road Fund — US$40 billion capital</div>
+                </div>
+            </div>
+
+            <div class="stat-grid stagger reveal">
+                <div class="stat-card">
+                    <div class="stat-card-icon">💴</div>
+                    <div class="stat-card-number">¥<span class="num" data-count="1">0</span>T</div>
+                    <div class="stat-card-label">AIIB Infrastructure</div>
+                    <div class="stat-card-desc">Over one trillion yuan in projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">💰</div>
+                    <div class="stat-card-number">$<span class="num" data-count="40">0</span>B</div>
+                    <div class="stat-card-label">Silk Road Fund</div>
+                    <div class="stat-card-desc">Total capital established 2014</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">🏦</div>
+                    <div class="stat-card-number">$<span class="num" data-count="160">0</span>B</div>
+                    <div class="stat-card-label">USD Equivalent</div>
+                    <div class="stat-card-desc">AIIB infrastructure pipeline</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8 — DEBT SUSTAINABILITY
+     ============================================================ -->
+<section class="section" id="debt">
+    <div class="chinese-chars" style="top: 40px; right: -40px;">债务</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section VIII</div>
+            <h2 class="section-title"><em>Debt</em> Sustainability</h2>
+            <p class="section-subtitle">Examining the allegations, the evidence, and the reality of Chinese lending.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>📊 Debt sustainability</strong></p>
+            <p class="reveal">In 2017, China joined the G20 Operational Guidelines for Sustainable Financing and in 2019 to the G20 Principles for Quality Infrastructure Investment.</p>
+            <p class="reveal">The Center for Global Development described China's New Debt Sustainability Framework as "virtually identical" to the World Bank's and IMF's own debt sustainability framework. According to academic Jeremy Garlick, for many impoverished countries, China is the best available option for development finance and practical assistance.</p>
+            <p class="reveal">Western investors and the World Bank have been reluctant to invest in troubled countries like Pakistan, Cambodia, Tajikistan, and Montenegro, which China is willing to invest in through the BRI.</p>
+            <p class="reveal">Generally, the United States and EU have not offered global South countries with investment comparable to what China offers through the BRI.</p>
+            <p class="reveal">China is the largest bilateral lender in the world. Loans are backed by collateral such as rights to a mine, a port or money.</p>
+            <p class="reveal">This policy has been alleged by the US Government to be a form of debt-trap diplomacy; however, according to the Alibaba-owned South China Morning Post, the term itself has come under scrutiny as analysts and researchers have pointed out that there is no evidence to prove that China is deliberately aiming to do debt-trap diplomacy.</p>
+            <p class="reveal">Research from Deborah Brautigam, an international political economy professor at Johns Hopkins University, and Meg Rithmire, an associate professor at Harvard Business School, have disputed the allegations of debt-trap diplomacy by China and pointed out that "Chinese banks are willing to restructure the terms of existing loans and have never actually seized an asset from any country, much less the port of Hambantota". In an editorial letter, they argued that it was 'long overdue' for people to know the truth and not to have it be "wilfully misunderstood".</p>
+            <p class="reveal">Writing in 2023, academic and former UK diplomat Kerry Brown states that China's relationship to the Hambantota port has become the opposite of the theorized debt-trap modus operandi.</p>
+            <p class="reveal">Brown observes that China has had to commit more money to the project, expose itself to further risk, and has had to become entangled in complex local politics.</p>
+            <p class="reveal">As of 2024, the port has not been a significant economic success, although shipping through the port is on the increase.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9 — INFRASTRUCTURE / CORRIDORS
+     ============================================================ -->
+<section class="section" id="corridors">
+    <div class="chinese-chars" style="bottom: 40px; left: -40px;">走廊</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section IX</div>
+            <h2 class="section-title"><em>Infrastructure</em> Networks</h2>
+            <p class="section-subtitle">Six land corridors and a maritime route — the arteries of a new global economy.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>📌 Infrastructure networks</strong></p>
+            <p class="reveal">The BRI is composed of six urban development land corridors linked by road, rail, energy, and digital infrastructure and the Maritime Silk Road linked by the development of ports.</p>
+            <p class="reveal">The Silk Road has proven to be a productive but at the same time elusive concept, increasingly used as an evocative metaphor. With China's 'Belt and Road Initiative', it has found fresh invocations and audiences.</p>
+            <p class="reveal">These are the belts in the name, and there is also a maritime silk road. Infrastructure corridors spanning some 60 countries, primarily in Asia and Europe but also including Oceania and East Africa, will cost an estimated US$4–8 trillion.</p>
+
+            <div class="image-block reveal">
+                <img src="image-19.jpg" alt="Six corridors overview">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 19</div>
+                <div class="img-caption">The six economic corridors of the BRI</div>
+            </div>
+
+            <p class="reveal">The land corridors include:</p>
+
+            <div class="corridor-grid stagger reveal">
+                <div class="corridor-card">
+                    <div class="corridor-number">I</div>
+                    <div class="corridor-title">China–Pakistan Economic Corridor (CPEC)</div>
+                    <div class="corridor-desc">The most developed land corridor of the BRI, as of at least 2024. It is a US$62 billion collection of infrastructure projects throughout Pakistan, which aims to rapidly modernize Pakistan's transportation networks, energy infrastructure, and economy.</div>
+                </div>
+                <div class="corridor-card">
+                    <div class="corridor-number">II</div>
+                    <div class="corridor-title">New Eurasian Land Bridge</div>
+                    <div class="corridor-desc">Runs from Western China to Western Russia through Kazakhstan, and includes the Silk Road Railway through China's Xinjiang Autonomous Region, Kazakhstan, Russia, Belarus, Poland and Germany. Astana, Kazakhstan is a major hub for the BRI, including related financial services and legal services. Khorgos which straddles the Kazakhstan-China border, is the major dry port for this corridor and is the place where rail cargo switches from the standard gauge used in China to the wider gauge used in the former Soviet Union.</div>
+                </div>
+                <div class="corridor-card">
+                    <div class="corridor-number">III</div>
+                    <div class="corridor-title">China–Mongolia–Russia Economic Corridor</div>
+                    <div class="corridor-desc">Running from Northern China through Mongolia to the Russian Far East. The Russian government-established Russian Direct Investment Fund and China's China Investment Corporation, a Chinese sovereign wealth fund, partnered in 2012 to create the Russia-China Investment Fund, which concentrates on opportunities in bilateral integration.</div>
+                </div>
+                <div class="corridor-card">
+                    <div class="corridor-number">IV</div>
+                    <div class="corridor-title">China–Central Asia–West Asia Corridor</div>
+                    <div class="corridor-desc">Which will run from Western China to Turkey.</div>
+                </div>
+                <div class="corridor-card">
+                    <div class="corridor-number">V</div>
+                    <div class="corridor-title">China-Indochina Peninsula Corridor</div>
+                    <div class="corridor-desc">Which will run from Southern China to Singapore.</div>
+                </div>
+                <div class="corridor-card">
+                    <div class="corridor-number">VI</div>
+                    <div class="corridor-title">Trans-Himalayan Network</div>
+                    <div class="corridor-desc">The Trans-Himalayan Multi-dimensional Connectivity Network, which will turn Nepal from a landlocked to a land-linked country.</div>
+                </div>
+            </div>
+
+            <div class="image-grid cols-2 stagger reveal">
+                <div class="image-block">
+                    <img src="image-20.jpg" alt="CPEC projects">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 20</div>
+                    <div class="img-caption">CPEC — US$62 billion in Pakistan</div>
+                </div>
+                <div class="image-block">
+                    <img src="image-21.jpg" alt="Eurasian Land Bridge">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 21</div>
+                    <div class="img-caption">The New Eurasian Land Bridge railway</div>
+                </div>
+            </div>
+
+            <p class="reveal">This kind of connectivity is the focus of BRI efforts because China's significant economic growth has been supported by exports and the overland import of major quantities of raw materials and intermediate components.</p>
+            <p class="reveal">By 2022, China had built cross-border highways and expressway networks to almost every nearby region.</p>
+            <p class="reveal">Railway connectivity is a major focus of the BRI. Use of BRI-related rail surged after the COVID-19 pandemic, which had congested air freight and sea shipping, and hampered port access.</p>
+            <p class="reveal">As of 2024, multiple BRI railway projects were branded as the China Railways Express, which linked approximately 60 Chinese cities to approximately 50 European cities.</p>
+
+            <div class="image-grid cols-2 stagger reveal">
+                <div class="image-block">
+                    <img src="image-22.jpg" alt="China Railways Express">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 22</div>
+                    <div class="img-caption">China Railways Express linking 60 Chinese cities to 50 European cities</div>
+                </div>
+                <div class="image-block">
+                    <img src="image-23.jpg" alt="Cross-border highways">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 23</div>
+                    <div class="img-caption">Cross-border highways and expressway networks</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10 — SILK ROAD ECONOMIC BELT
+     ============================================================ -->
+<section class="section" id="belt">
+    <div class="chinese-chars" style="top: 40px; left: -40px;">丝绸</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section X</div>
+            <h2 class="section-title">The Silk Road <em>Economic Belt</em></h2>
+            <p class="section-subtitle">Building hard and soft infrastructure across Central Asia, West Asia, the Middle East, and Europe.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>🌍 Silk Road Economic Belt</strong></p>
+            <p class="reveal">Xi Jinping visited Astana, Kazakhstan, and Southeast Asia in September and October 2013, and proposed jointly building a new economic area, the Silk Road Economic Belt.</p>
+            <p class="reveal">The "belt" includes countries on the original Silk Road through Central Asia, West Asia, the Middle East, and Europe. The initiative would create a cohesive economic area by building both hard infrastructure such as rail and road links and soft infrastructure such as trade agreements and a common commercial legal structure with a court system to police the agreements.</p>
+            <p class="reveal">Besides a zone largely analogous to the historical Silk Road, an expansion includes South Asia and Southeast Asia. The BRI is important from the Southeast Asian perspective because, with the exception of Singapore, Southeast Asian countries require significant infrastructure investment to advance their development.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11 — MARITIME SILK ROAD
+     ============================================================ -->
+<section class="section" id="maritime">
+    <div class="chinese-chars" style="bottom: 40px; right: -40px;">海上</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section XI</div>
+            <h2 class="section-title">The 21st Century <em>Maritime</em> Silk Road</h2>
+            <p class="section-subtitle">The sea corridor connecting Southeast Asia, Oceania, and Africa through contiguous bodies of water.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>🌊 21st Century Maritime Silk Road</strong></p>
+            <p class="reveal">The "21st Century Maritime Silk, or just the Maritime Silk Road, is the sea route 'corridor.'</p>
+            <p class="reveal">It is a complementary initiative aimed at investing and fostering collaboration in Southeast Asia, Oceania and Africa through several contiguous bodies of water: the South China Sea, the South Pacific Ocean, and the wider Indian Ocean area.</p>
+            <p class="reveal">It was first proposed in October 2013 by Xi Jinping in a speech to the Indonesian Parliament.</p>
+
+            <div class="image-block reveal">
+                <img src="image-24.jpg" alt="Maritime Silk Road">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 24</div>
+                <div class="img-caption">The Maritime Silk Road sea corridor</div>
+            </div>
+
+            <p class="reveal">The maritime Silk Road runs with its links from the Chinese coast to the south via Hanoi to Jakarta, Singapore and Kuala Lumpur through the Strait of Malacca via the Sri Lankan Colombo opposite the southern tip of India via Malé, the capital of the Maldives, to the East African Mombasa, from there to Djibouti, then through the Red Sea over the Suez Canal into the Mediterranean, there via Haifa, Istanbul and Athens to the Upper Adriatic to the northern Italian junction of Trieste with its international free port and its rail connections to Central Europe and the North Sea.</p>
+
+            <div class="image-block reveal">
+                <img src="image-25.jpg" alt="Port of Trieste">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 25</div>
+                <div class="img-caption">The northern Italian junction of Trieste</div>
+            </div>
+
+            <p class="reveal">According to estimates in 2019, the land route of the Silk Road remains a niche project and the bulk of the Silk Road trade continues to be carried out by sea. The reasons are primarily due to the cost of container transport. The maritime Silk Road is also considered to be particularly attractive for trade because, in contrast to the land-based Silk Road leading through the sparsely populated Central Asia, there are on the one hand, far more states on the way to Europe and, on the other hand, their markets, development opportunities, and population numbers are far larger. In particular, there are many land-based links, such as the Bangladesh-China-India-Myanmar Corridor (BCIM). Due to the attractiveness of this now subsidized sea route and the related investments, there have been major shifts in the logistics chains of the shipping sector in recent years.</p>
+            <p class="reveal">Due to its unique geographical location, Myanmar is viewed to be playing a pivotal role in China's BRI projects.</p>
+            <p class="reveal">From the Chinese point of view, Africa is important as a market, raw material supplier and platform for the expansion of the new Silk Road, so investment in the coasts of Africa (particularly East Africa) is part of its economic strategy. In Kenya's port of Mombasa, China has built a rail and road connection to the inland and to the capital Nairobi. To the northeast of Mombasa, a large port with 32 berths including an adjacent industrial area including infrastructure with new traffic corridors to South Sudan and Ethiopia is being built. A modern deep-water port, a satellite city, an airfield and an industrial area are being built in Bagamoyo, Tanzania. Further towards the Mediterranean, the Teda Egypt special economic zone is being built near the Egyptian coastal town of Ain Sochna as a joint Chinese-Egyptian project.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 12 — AFRICA & EUROPE CONNECTIONS
+     ============================================================ -->
+<section class="section" id="africa">
+    <div class="chinese-chars" style="top: 40px; right: -40px;">非洲</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section XII</div>
+            <h2 class="section-title">Connecting <em>Africa</em> & Europe</h2>
+            <p class="section-subtitle">Trieste, the Adriatic, and the reorganization of global container shipping.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal">As part of its Silk Road strategy, China is participating in large areas of Africa in the construction and operation of train routes, roads, airports and industry. In several countries, such as Zambia, Ethiopia and Ghana, dams have been built with Chinese help. In Nairobi, China is funding the construction of the tallest building in Africa, the Pinnacle Towers. With the Chinese investments of 60 billion dollars for Africa announced in September 2018, on the one hand, sales markets are created, and the local economy is promoted, and, on the other hand, African raw materials are made available for China.</p>
+            <p class="reveal">The international free zone of Trieste provides in particular special areas for storage, handling and processing as well as transit zones for goods.</p>
+            <p class="reveal">At the same time, logistics and shipping companies invest in their technology and locations in order to benefit from ongoing developments.</p>
+            <p class="reveal">This also applies to the logistics connections between Turkey and the free port of Trieste, which are important for the Silk Road, and from there by train to Rotterdam and Zeebrugge. There is also direct cooperation, for example between Trieste, Bettembourg, and the Chinese province of Sichuan. While direct train connections from China to Europe, such as from Chengdu to Vienna overland, are partially stagnating or discontinued, there are (as of 2019) new weekly rail connections between Wolfurt or Nuremberg and Trieste or between Trieste, Vienna and Linz on the maritime Silk Road.</p>
+            <p class="reveal">There are also extensive intra-European infrastructure projects to adapt trade flows to current needs. Concrete projects (as well as their financing), which are to ensure the connection of the Mediterranean ports with the European hinterland, are decided among others at the annual China-Central-East-Europe summit, which was launched in 2012. This applies, for example, to the expansion of the Belgrade-Budapest railway line, the construction of the high-speed train between Milan, Venice and Trieste and connections on the Adriatic-Baltic and Adriatic-North Sea axis. Poland, the Baltic States, Northern Europe and Central Europe are also connected to the maritime Silk Road through many links and are thus logistically networked via the Adriatic ports and Piraeus to East Africa, India and China. Overall the pan is that the ship connections for container transport between Asia and Europe will be reorganized.</p>
+            <p class="reveal">In contrast to the longer East Asia traffic via northwest Europe, the south-facing sea route through the Suez Canal towards the Trieste bridgehead shortens the transport of goods by at least four days.</p>
+            <p class="reveal">According to a study by the University of Antwerp, the maritime route via Trieste dramatically reduces transport costs. The example of Munich shows that the transport there from Shanghai via Trieste takes 33 days, while the northern route takes 43 days. From Hong Kong, the southern route reduces transport to Munich from 37 to 28 days. The shorter route leads to better use of the ships and lower CO2 emissions. Therefore, in the Mediterranean area, where the economic zone of the Liverpool–Milan Axis meets functioning railroad connections and deep-water ports, there are significant growth zones. Henning Vöpel, Director of the Hamburg World Economic Institute, says that the North Range (i.e. transport via the North Sea ports to Europe) will not necessarily remain dominant in the medium term.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 13 — ICE SILK ROAD
+     ============================================================ -->
+<section class="section" id="ice">
+    <div class="chinese-chars" style="bottom: 40px; left: -40px;">冰上</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section XIII</div>
+            <h2 class="section-title">The <em>Ice</em> Silk Road</h2>
+            <p class="section-subtitle">A new Arctic corridor along the Northern Sea Route.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>❄️ Ice Silk Road</strong></p>
+            <p class="reveal">In addition to the Maritime Silk Road, Russia and China are reported to have agreed to jointly build an 'Ice Silk Road' along the Northern Sea Route in the Arctic, along a maritime route within Russian territorial waters.</p>
+
+            <div class="image-block reveal">
+                <img src="image-26.jpg" alt="Arctic Ice Silk Road">
+                <div class="img-overlay"></div>
+                <div class="img-number">Fig. 26</div>
+                <div class="img-caption">The Northern Sea Route through the Arctic</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 14 — DIGITAL SILK ROAD
+     ============================================================ -->
+<section class="section" id="digital">
+    <div class="chinese-chars" style="top: 40px; left: -40px;">数字</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section XIV</div>
+            <h2 class="section-title">The <em>Digital</em> Silk Road</h2>
+            <p class="section-subtitle">Digital infrastructure, standards, and the export of technological systems.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>📡 Digital Silk Road</strong></p>
+            <p class="reveal">In 2015, Xi announced the Digital Silk Road.</p>
+            <p class="reveal">The Digital Silk Road is a component of the BRI which includes digital technological development, the development of digital standards, and the expansion of digital infrastructure.</p>
+            <p class="reveal">Its stated aim is to improve digital connectivity among participating countries, with China as the main driver of the improved digital infrastructure, with the benefit to China of reducing its reliance on American digital technology.</p>
+            <p class="reveal">The Digital Silk Road has also been a way to export China's system of mass surveillance and censorship technology of the Great Firewall to multiple countries.</p>
+
+            <div class="image-grid cols-2 stagger reveal">
+                <div class="image-block">
+                    <img src="image-27.jpg" alt="Digital infrastructure">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 27</div>
+                    <div class="img-caption">Digital infrastructure expansion</div>
+                </div>
+                <div class="image-block">
+                    <img src="image-28.jpg" alt="Great Firewall">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 28</div>
+                    <div class="img-caption">The Great Firewall and digital systems</div>
+                </div>
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — Mass Surveillance</span>
+                <strong>Mass surveillance in the People's Republic of China (PRC)</strong> is the network of monitoring systems used by the Chinese Communist Party (CCP) and government to monitor its citizens.
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — Censorship</span>
+                <strong>Censorship in the People's Republic of China (PRC)</strong> is mandated by the Chinese Communist Party. It is one of the strictest censorship regimes in the world. The government censors content for mainly political reasons, such as curtailing political opposition, and censoring events unfavorable to the CCP.
+            </div>
+
+            <div class="note-card reveal">
+                <div class="note-icon">📌</div>
+                <span class="note-label">Definition — The Great Firewall</span>
+                <strong>The Great Firewall</strong> is the combination of legislative actions and technologies enforced by the People's Republic of China to regulate the Internet domestically. Its role in internet censorship in China is to block access to selected foreign websites and to slow down cross-border internet traffic.
+            </div>
+
+            <p class="reveal">Like the BRI more broadly, the Digital Silk Road is not monolithic and involves many actors across both China's public and private sectors.</p>
+            <p class="reveal">Alibaba supplies a significant amount of technology for the Digital Silk Road.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 15 — ACADEMIC & CULTURAL
+     ============================================================ -->
+<section class="section" id="academic">
+    <div class="chinese-chars" style="bottom: 40px; right: -40px;">学术</div>
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-number">Section XV</div>
+            <h2 class="section-title"><em>Academic</em> & Cultural Bonds</h2>
+            <p class="section-subtitle">Scholarships, mobility, and the people-to-people dimension of the initiative.</p>
+        </div>
+
+        <div class="article-content">
+            <p class="reveal"><strong>🎎📒 Academic and cultural</strong></p>
+            <p class="reveal">People-to-people bonds are one of the five major goals of the Belt and Road Initiative (BRI), with its educational policy emphasizing mutual recognition of qualifications, academic mobility, student exchanges, and joint study programmes.</p>
+            <p class="reveal">To support this, President Xi Jinping announced plans to allocate 30,000 scholarships for SCO citizens and 10,000 scholarships for students and teachers from countries along the Belt and Road.</p>
+            <p class="reveal">The Silk Road Scholarship is part of China's broader agenda of increasing academic and cultural cooperation with BRI-participating countries.</p>
+
+            <div class="image-grid cols-2 stagger reveal">
+                <div class="image-block">
+                    <img src="image-29.jpg" alt="Academic cooperation">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 29</div>
+                    <div class="img-caption">Academic and cultural cooperation</div>
+                </div>
+                <div class="image-block">
+                    <img src="image-30.jpg" alt="Student exchanges">
+                    <div class="img-overlay"></div>
+                    <div class="img-number">Fig. 30</div>
+                    <div class="img-caption">Student exchanges across BRI nations</div>
+                </div>
+            </div>
+
+            <div class="stat-grid stagger reveal">
+                <div class="stat-card">
+                    <div class="stat-card-icon">🎓</div>
+                    <div class="stat-card-number"><span class="num" data-count="30000">0</span></div>
+                    <div class="stat-card-label">SCO Scholarships</div>
+                    <div class="stat-card-desc">For citizens of SCO member states</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">📚</div>
+                    <div class="stat-card-number"><span class="num" data-count="10000">0</span></div>
+                    <div class="stat-card-label">BRI Scholarships</div>
+                    <div class="stat-card-desc">For students and teachers along the route</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">🌐</div>
+                    <div class="stat-card-number"><span class="num" data-count="5">0</span></div>
+                    <div class="stat-card-label">Major Goals</div>
+                    <div class="stat-card-desc">Including people-to-people bonds</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+(function() {
+    'use strict';
+
+    // Loader
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('loader').classList.add('hidden');
+        }, 1000);
+    });
+
+    // Custom cursor
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    if (window.matchMedia('(pointer: fine)').matches) {
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.transform = 'translate(' + (mouseX - 3) + 'px, ' + (mouseY - 3) + 'px)';
+        });
+
+        function animateRing() {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.transform = 'translate(' + (ringX - 20) + 'px, ' + (ringY - 20) + 'px)';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        const hoverables = document.querySelectorAll('a, button, .image-block, .stat-card, .corridor-card, .note-card');
+        hoverables.forEach(function(el) {
+            el.addEventListener('mouseenter', function() {
+                cursorRing.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', function() {
+                cursorRing.classList.remove('hover');
+            });
+        });
+    }
+
+    // Progress bar & navigation
+    const nav = document.getElementById('nav');
+    const progressBar = document.getElementById('progressBar');
+    const backToTop = document.getElementById('backToTop');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('.section');
+
+    function handleScroll() {
+        const scrollY = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollY / docHeight) * 100;
+        progressBar.style.width = progress + '%';
+
+        if (scrollY > 80) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+
+        if (scrollY > 600) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+
+        // Active section
+        let currentSection = '';
+        sections.forEach(function(section) {
+            const top = section.offsetTop - 200;
+            const bottom = top + section.offsetHeight;
+            if (scrollY >= top && scrollY < bottom) {
+                currentSection = section.id;
+            }
+        });
+
+        navLinks.forEach(function(link) {
+            link.classList.remove('active');
+            if (link.getAttribute('data-section') === currentSection) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Reveal animations
+    const revealElements = document.querySelectorAll('.reveal, .stagger');
+
+    const revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -80px 0px'
+    });
+
+    revealElements.forEach(function(el) {
+        revealObserver.observe(el);
+    });
+
+    // Animated counters
+    const counters = document.querySelectorAll('[data-count]');
+
+    const counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = 'true';
+                animateCounter(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function(counter) {
+        counterObserver.observe(counter);
+    });
+
+    function animateCounter(el) {
+        const target = parseInt(el.dataset.count, 10);
+        const duration = 2000;
+        const start = performance.now();
+
+        function update(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = Math.floor(eased * target);
+            el.textContent = value.toLocaleString();
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = target.toLocaleString();
+            }
+        }
+        requestAnimationFrame(update);
+    }
+
+    // Magnetic buttons
+    document.querySelectorAll('.magnetic').forEach(function(btn) {
+        btn.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            this.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15 - 2) + 'px)';
+        });
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+
+    // Image hover parallax
+    document.querySelectorAll('.image-block').forEach(function(block) {
+        block.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            const img = this.querySelector('img');
+            if (img) {
+                img.style.transform = 'scale(1.04) translate(' + (x * -12) + 'px, ' + (y * -12) + 'px)';
+            }
+        });
+        block.addEventListener('mouseleave', function() {
+            const img = this.querySelector('img');
+            if (img) {
+                img.style.transform = '';
+            }
+        });
+    });
+
+    // Stat card hover
+    document.querySelectorAll('.stat-card').forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            this.style.background = 'radial-gradient(circle at ' + x + 'px ' + y + 'px, rgba(201, 162, 74, 0.08), #fff 60%)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.background = '';
+        });
+    });
+
+    // Corridor card tilt
+    document.querySelectorAll('.corridor-card').forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            this.style.transform = 'translateY(-10px) rotateX(' + (y * -5) + 'deg) rotateY(' + (x * 5) + 'deg)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+
+    // Chinese characters parallax
+    document.querySelectorAll('.chinese-chars').forEach(function(chars) {
+        window.addEventListener('scroll', function() {
+            const rect = chars.parentElement.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                chars.style.transform = 'translateY(' + ((progress - 0.5) * 80) + 'px)';
+            }
+        }, { passive: true });
+    });
+
+    // Reduce motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.reveal, .stagger > *').forEach(function(el) {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
+    }
+
+})();
+</script>
+
+</body>
+</html>
